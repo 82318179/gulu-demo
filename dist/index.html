@@ -7,15 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>咕噜</title>
 
-    <style>.icon {
-            width: 1em;
-            height: 1em;
-
-            fill: currentColor;
-            overflow: hidden;
-        }
-
-        * {
+    <style>* {
             margin: 0;
             padding: 0;
             box-sizing: border-box
@@ -46,9 +38,11 @@
 <body>
     <div id="app">
         <g-button icon="Settings">按钮</g-button>
-        <g-button>按钮</g-button>
+        <g-button :loading="true">按钮</g-button>
 
         <g-button icon="Settings" icon-position="right">按钮</g-button>
+
+        <g-button icon="Settings">按钮</g-button>
     </div>
     <script src="/app.a6a4d504.js"></script>
 

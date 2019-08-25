@@ -8,14 +8,6 @@
     <title>咕噜</title>
 
     <style>
-        .icon {
-            width: 1em;
-            height: 1em;
-
-            fill: currentColor;
-            overflow: hidden;
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -48,9 +40,11 @@
 <body>
     <div id="app">
         <g-button icon="Settings">按钮</g-button>
-        <g-button>按钮</g-button>
+        <g-button :loading="true">按钮</g-button>
 
         <g-button icon="Settings" icon-position="right">按钮</g-button>
+
+        <g-button icon="Settings">按钮</g-button>
     </div>
     <script src="./src/app.js"></script>
 

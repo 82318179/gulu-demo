@@ -1,15 +1,30 @@
 <template>
-  <button :class="{[`icon-${iconPosition}`]:true}" class="g-button">
-    <svg v-if="icon" class="icon" aria-hidden="true">
-      <use :xlink:href="`#i-${icon}`" />
-    </svg>
+  <button :class="{[`icon-${iconPosition}`]:iconPosition === 'right'}" class="g-button">
+    <g-icon v-if="icon" :name="icon"></g-icon>
     <slot></slot>
   </button>
 </template>
 
 <script>
 export default {
-  props: ["icon", "iconPosition"]
+  props: {
+    icon: {},
+    iconPosition: {
+      type: String,
+      default: "left",
+      validator(value) {
+        if (value == "right" || value == "left") {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    },
+    loading: {
+      type: Boolean,
+      default: false
+    }
+  }
 };
 </script>
 
@@ -24,7 +39,8 @@ export default {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  vertical-align: -webkit-baseline-middle;
+  vertical-align: middle;
+
   &:active {
     background-color: var(--button-active-bg);
   }
@@ -37,7 +53,7 @@ export default {
     outline: none;
   }
   &.icon-right {
-    > .icon {
+    > .g-icon {
       order: 2;
     }
   }
