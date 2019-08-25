@@ -8,6 +8,14 @@
     <title>咕噜</title>
 
     <style>
+        .icon {
+            width: 1em;
+            height: 1em;
+
+            fill: currentColor;
+            overflow: hidden;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -23,9 +31,6 @@
             --color: #333;
             --border-color: #999;
             --border-color-hover: #666;
-
-
-
         }
 
         body {
@@ -35,8 +40,6 @@
         #app {
             margin: 20px;
         }
-
-
     </style>
 
 
@@ -44,9 +47,16 @@
 
 <body>
     <div id="app">
-        <g-button></g-button>
+        <g-button icon="Settings">按钮</g-button>
+        <g-button>按钮</g-button>
+
+        <g-button icon="Settings" icon-position="right">按钮</g-button>
     </div>
     <script src="./src/app.js"></script>
+
+    <script src="//at.alicdn.com/t/font_1369079_ko0rkmjfjls.js"></script>
+
+
 </body>
 
 </html>
