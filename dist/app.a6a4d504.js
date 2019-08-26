@@ -12411,6 +12411,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
 //
 //
 //
@@ -12420,8 +12427,12 @@ exports.default = void 0;
 //
 //
 var _default = {
-  props: {
+  props: _defineProperty({
     icon: {},
+    loading: {
+      type: Boolean,
+      default: false
+    },
     iconPosition: {
       type: String,
       default: "left",
@@ -12432,10 +12443,15 @@ var _default = {
           return false;
         }
       }
-    },
-    loading: {
-      type: Boolean,
-      default: false
+    }
+  }, "loading", {
+    type: Boolean,
+    default: false
+  }),
+  methods: {
+    change: function change() {
+      console.log(1);
+      this.$emit("click");
     }
   }
 };
@@ -12459,12 +12475,17 @@ exports.default = _default;
       staticClass: "g-button",
       class: ((_obj = {}),
       (_obj["icon-" + _vm.iconPosition] = _vm.iconPosition === "right"),
-      _obj)
+      _obj),
+      on: { click: _vm.change }
     },
     [
-      _vm.icon ? _c("g-icon", { attrs: { name: _vm.icon } }) : _vm._e(),
+      _vm.icon && !_vm.loading
+        ? _c("g-icon", { attrs: { name: _vm.icon } })
+        : _vm._e(),
       _vm._v(" "),
-      _c("g-icon", { staticClass: "loading", attrs: { name: "loading" } }),
+      _vm.loading
+        ? _c("g-icon", { staticClass: "loading", attrs: { name: "loading" } })
+        : _vm._e(),
       _vm._v(" "),
       _vm._t("default")
     ],
@@ -12590,7 +12611,7 @@ _vue.default.component('g-icon', _icon.default);
 var vm = new _vue.default({
   el: '#app',
   data: {
-    msg: 'hello'
+    loading1: true
   }
 });
 },{"vue":"node_modules/vue/dist/vue.common.js","./Button.vue":"src/Button.vue","./icon.vue":"src/icon.vue"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
